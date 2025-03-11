@@ -1,9 +1,14 @@
 import os
 
-def get_data():
-    # open inputs/1.txt file
+def read_matrix(file_path):
+    with open(file_path, "r") as file:
+        matrix = [list(map(int, line.split())) for line in file]
+    return matrix
+
+def get_data(day):
+    # open inputs/{day}.txt file
     cwd = os.getcwd()
-    with open(cwd + '/inputs/1.txt', 'r') as file:
+    with open(cwd + f'/inputs/{day}.txt', 'r') as file:
         data = file.readlines()
         # Process the data into two columns
         column1 = []
